@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import Navbar from './Navbar/Navbar'
-import Products from './Products/Products'
-import Footer from './Footer/Footer'
-import Hero from './Hero/Hero'
+import Navbar from './components/Navbar/Navbar'
+import Footer from './components/Footer/Footer'
+import { BrowserRouter } from 'react-router-dom'
+import Home from './components/Home/Home'
+import AppRouter from './routes/AppRouter'
 function App() {
   const [counter, setCounter] = useState(0)
   const maxStock = 15
@@ -16,12 +17,11 @@ function App() {
   }
 
   return (
-    <div>
+    <BrowserRouter>
       <Navbar counter={counter}/>
-      <Hero/>
-      <Products add = {handleAdd} remove={handleRemove}/>
+        <AppRouter/>
       <Footer/>
-    </div>
+    </BrowserRouter>
   )
 }
 

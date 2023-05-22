@@ -1,0 +1,14 @@
+.rec-item{
+    background-color: whitesmoke;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+}
+.rec-btn-ctn{
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}

@@ -4,7 +4,7 @@ import './Footer.css'
 const Footer = () => {
     return (
         <footer>
-            <h4> © Made by lvcas</h4>
+            <p className='copyright'> © Made by lvcas</p>
         </footer>
     )
 }
