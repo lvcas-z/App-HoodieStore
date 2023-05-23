@@ -2,9 +2,9 @@ import React from 'react'
 import './Hero.css'
 const Hero = () => {
     return (
-        <>
-            <h1 className='hero'>HOODIE STORE</h1>
-        </>
+        <div className='hero-ctn'>
+            <h1 className='hero-title'>HOODIE STORE</h1>
+        </div>
     )
 }
 

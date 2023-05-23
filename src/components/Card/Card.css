@@ -1,14 +1,20 @@
-.rec-item{
+.card-item{
     background-color: whitesmoke;
     padding: 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 20rem;
 }
-.rec-btn-ctn{
+.card-img{
+    width: 20rem;
+    padding: 1rem;
+}
+.card-btn-ctn{
     padding-top: 5px;
     display: flex;
     justify-content: center;
     gap: 1rem;
+}
+button{
+    border: 0;
 }

@@ -1,4 +1,9 @@
-.hero{
+.hero-ctn{
+    background-image: url('../../assets/hero.jpg');
+    background-size: cover;
+}
+.hero-title{
+    color: lavender;
     height: 80vh;
     display: flex;
     justify-content: center;

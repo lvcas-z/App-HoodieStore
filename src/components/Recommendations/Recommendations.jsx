@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react'
-import RecItem from './RecItem/RecItem'
+import Card from '../Card/Card'
 import { getProducts } from '../../helpers/getProducts'
 import './Recommendations.css'
 
@@ -21,7 +21,7 @@ const Recommendations = ({add,remove}) => {
             setLoading(false)
         })
     }, [])
-    
+    const recommendations = products.filter(product=>product.score>=8)
     return (
         <section className='recommendations'>
             <h3 className='rec-title'>Recomendations</h3>
@@ -31,8 +31,8 @@ const Recommendations = ({add,remove}) => {
                     ?
                     <h4>Cargando...</h4>
                     :
-                    products.map(product => {
-                        return(<RecItem key={product.id} add={add} remove={remove} {...product}/>)
+                    recommendations.map(product => {
+                        return(<Card key={product.id} add={add} remove={remove} {...product}/>)
                     })
                 }
             </section>
