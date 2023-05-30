@@ -1,0 +1,13 @@
+.products{
+    padding: 1rem 1rem 3rem 1rem;
+}
+.pro-title{
+    text-align: center;
+    padding: 1rem;
+}
+.pro-ctn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+}

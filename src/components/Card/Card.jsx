@@ -1,6 +1,8 @@
 import React from 'react'
 import './Card.css'
-const Card = ({add,remove,name,img,price}) => {
+import { Link } from 'react-router-dom';
+const Card = ({id,add,remove,name,img,price}) => {
+    console.log(add);
     return (
     <div className='card-item'>
         <div className='card-img-ctn'>
@@ -13,7 +15,9 @@ const Card = ({add,remove,name,img,price}) => {
             </div>
             <div className='card-btn-ctn'>
                 <button onClick={remove}>Details</button>
-                <button onClick={add}>Buy</button>
+                <Link to={"/product/" + id}>
+                    <button>Buy</button>
+                </Link>
             </div>
         </div>
         

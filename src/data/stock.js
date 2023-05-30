@@ -8,6 +8,7 @@ import skyHoodie from '../assets/skyHoodie.png'
 export const stock = [
     {
         "id": 1,
+        "category":"Normal",
         "score":7,
         "name": "Green Hoodie",
         "img": greenHoodie,
@@ -15,6 +16,7 @@ export const stock = [
     },
     {
         "id": 2,
+        "category":"Special",
         "score":10,
         "name": "Mint Hoodie",
         "img": mintHoodie,
@@ -22,6 +24,7 @@ export const stock = [
     },
     {
         "id": 3,
+        "category":"Basic",
         "score":5,
         "name": "Grey Hoodie",
         "img": greyHoodie,
@@ -29,6 +32,7 @@ export const stock = [
     },
     {
         "id": 4,
+        "category":"Basic",
         "score":10,
         "name": "Black Hoodie",
         "img": blackHoodie,
@@ -36,6 +40,7 @@ export const stock = [
     },
     {
         "id": 5,
+        "category":"Normal",
         "score":7,
         "name": "Purple Hoodie",
         "img": purpleHoodie,
@@ -43,6 +48,7 @@ export const stock = [
     },
     {
         "id": 6,
+        "category":"Special",
         "score":10,
         "name": "Sky Hoodie",
         "img": skyHoodie,
