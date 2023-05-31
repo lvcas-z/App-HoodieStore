@@ -9,12 +9,29 @@
     width: 20rem;
     padding: 1rem;
 }
+.card-category{
+    font-weight: 100;
+}
 .card-btn-ctn{
     padding-top: 5px;
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
-button{
+.card-btn-details,.card-btn-buy{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
     border: 0;
+    width: 5rem;
+    padding: 0.5rem;
+    background: #e8e8e8;
+    border-radius: 5px;
+}
+.card-btn-details:hover{
+    background-color:#888888
+}
+.card-btn-buy:hover{
+    background-color: #c1c1fd;
 }
