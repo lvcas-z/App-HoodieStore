@@ -2,8 +2,7 @@ import React from 'react'
 import './Card.css'
 import { Link } from 'react-router-dom';
 import {BsFillBagFill,BsFillEyeFill} from 'react-icons/bs'
-const Card = ({id,add,remove,name,img,price,category}) => {
-    console.log(add);
+const Card = ({id,name,img,price,category}) => {
     return (
     <div className='card-item'>
         <div className='card-img-ctn'>

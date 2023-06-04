@@ -2,11 +2,11 @@ import React from 'react'
 import Hero from '../Hero/Hero'
 import Recommendations from '../Recommendations/Recommendations'
 
-const Home = ({add,remove}) => {
+const Home = () => {
     return (
     <>
         <Hero/>
-        <Recommendations add={add} remove={remove}/>
+        <Recommendations/>
     </>
     )
 }

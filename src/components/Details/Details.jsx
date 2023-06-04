@@ -8,6 +8,10 @@ import './Details.css'
 const Details = () => {
     const {id} = useParams()
     const [product, setProduct] = useState([])
+    const [count, setCount] = useState(0)
+    const increment =()=> setCount(count+1)
+    const decrement =()=> setCount(count-1)
+
     const navigate = useNavigate()
     const getProduct = async(id)=>{
         try {
@@ -37,9 +41,9 @@ const Details = () => {
                     <p className='detail-price'>${product.price}</p>
                 </section>
                 <section className='detail-info-buttons'>
-                    <button className='detail-info-btn'><BsPlusLg/></button>
-                    <button className='detail-info-btn'><AiOutlineMinus/></button>
-                    <p>Count : 0</p>
+                    <button onClick={increment} className='detail-info-btn'><BsPlusLg/></button>
+                    <button onClick={decrement} className='detail-info-btn'><AiOutlineMinus/></button>
+                    <p>Count: {count}</p>
                 </section>
                 <button className='detail-buy-btn'><BsFillBagFill/>Buy</button>
             </section>

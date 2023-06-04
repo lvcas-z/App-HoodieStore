@@ -23,6 +23,7 @@
     padding: 2rem;
 }
 .detail-back-btn{
+    cursor: pointer;
     border: 0;
     background: none;
     font-size: 2.5rem;
@@ -41,13 +42,30 @@
     font-size: 2rem;
 }
 .detail-info-btn{
+    cursor: pointer;
     border: 0;
     background: none;
     font-size: 2rem;
 }
 .detail-buy-btn{
+    cursor: pointer;
     height: 3rem;
     background: #bdbde1;
     border: 0;
     border-radius: 5px;
+}
+@media (max-width:1024px){
+    .details-ctn{
+        flex-direction: column;
+        align-items: center;
+    }
+    .detail-img-ctn{
+        width: auto;
+    }
+    .detail-img{
+        width: 100%;
+    }
+    .details-info-ctn{
+        width: auto;
+    }
 }

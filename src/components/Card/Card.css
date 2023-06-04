@@ -35,3 +35,8 @@
 .card-btn-buy:hover{
     background-color: #c1c1fd;
 }
+@media (max-width:1024px){
+    .card-img{
+        width: 15rem;
+    }
+}

@@ -3,7 +3,7 @@ import Card from '../Card/Card'
 import { getProducts } from '../../helpers/getProducts'
 import './Recommendations.css'
 
-const Recommendations = ({add,remove}) => {
+const Recommendations = () => {
     const [loading, setLoading] = useState(false)
 
     const [products, setProducts] = useState([])
@@ -32,7 +32,7 @@ const Recommendations = ({add,remove}) => {
                     <h4>Cargando...</h4>
                     :
                     recommendations.map(product => {
-                        return(<Card key={product.id} add={add} remove={remove} {...product}/>)
+                        return(<Card key={product.id}{...product}/>)
                     })
                 }
             </section>
