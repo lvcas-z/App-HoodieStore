@@ -11,3 +11,8 @@
     justify-content: space-evenly;
     gap: 1rem;
 }
+.loading{
+    height: 70vh;
+    text-align: center;
+    font-size: 2rem;
+}

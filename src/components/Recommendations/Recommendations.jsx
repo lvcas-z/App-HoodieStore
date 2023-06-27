@@ -29,7 +29,7 @@ const Recommendations = () => {
                 {
                     loading===true
                     ?
-                    <h4>Cargando...</h4>
+                    <h4 className='loading'>Loading...</h4>
                     :
                     recommendations.map(product => {
                         return(<Card key={product.id}{...product}/>)

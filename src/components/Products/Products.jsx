@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Card from '../Card/Card'
-import { getProducts } from '../../helpers/getProducts'
+// import { getProducts } from '../../helpers/getProducts'
+import {getFirestore,getDocs, collection}from 'firebase/firestore'
 import './Products.css'
 const Products = () => {
     const [loading, setLoading] = useState(false)
@@ -26,20 +27,20 @@ const Products = () => {
         }
 }
     useEffect(() => {
+        const queryDb = getFirestore()
+        const queryDocs = collection(queryDb,'products')
         setLoading(true)
-        getProducts()
-            .then((res) => {
-                setOriginalProducts(res)
-                setProducts(res)
+        getDocs(queryDocs)
+        .then((res)=>{
+            setProducts(res.docs.map(product=>({id: product.id, ...product.data()})))
             })
-            .catch((error) => {
-                console.log(error)
-            }
+            .catch((error)=>{
+                console.log(error)}
             )
-            .finally(() => {
+            .finally(()=>{
                 setLoading(false)
             })
-    }, [])
+        }, [])
 
         return (
             <section className='products'>
@@ -57,7 +58,7 @@ const Products = () => {
                     {
                         loading === true
                             ?
-                            <h4>Cargando...</h4>
+                            <h4 className='loading'>Loading...</h4>
                             :
                             products.map(product => {
                                 return (<Card key={product.id}{...product} />)
