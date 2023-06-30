@@ -1,21 +1,32 @@
-import React, { useEffect,useState } from 'react'
+import React, { useContext, useEffect,useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { getProductById } from '../../helpers/getProductById'
+
 import {BsArrowLeft,BsPlusLg,BsFillBagFill} from 'react-icons/bs'
 import {AiOutlineMinus} from 'react-icons/ai'
 import './Details.css'
+import { ProductContext } from '../Context/ProductContext'
 
 const Details = () => {
     const {id} = useParams()
+    const {products} = useContext(ProductContext)
     const [product, setProduct] = useState([])
     const [count, setCount] = useState(0)
     const increment =()=> setCount(count+1)
     const decrement =()=> setCount(count-1)
 
     const navigate = useNavigate()
+    const getProductById = async (id) => {
+        const productById = products?.find(product => product.id === id)
+        if (productById) {
+            return productById
+        } else {
+            throw new Error(`The product with id : ${id} not exists `)
+        }
+    }
+
     const getProduct = async(id)=>{
         try {
-            const data = await getProductById(parseInt(id))
+            const data = await getProductById(id)
             setProduct(data)
         } catch (error) {
             throw error

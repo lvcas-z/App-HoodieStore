@@ -1,27 +1,17 @@
-import React, {useState, useEffect } from 'react'
+import React, {useEffect,useContext } from 'react'
 import Card from '../Card/Card'
-import { getProducts } from '../../helpers/getProducts'
 import './Recommendations.css'
+import { ProductContext } from '../Context/ProductContext'
 
 const Recommendations = () => {
-    const [loading, setLoading] = useState(false)
-
-    const [products, setProducts] = useState([])
+    const { products, setProducts, loading, setLoading, getProducts } = useContext(ProductContext)
 
     useEffect(() => {
-        setLoading(true)
         getProducts()
-        .then((res)=>{
-            setProducts(res)
-        })
-        .catch((error)=>{
-            console.log(error)}
-        )
-        .finally(()=>{
-            setLoading(false)
-        })
     }, [])
-    const recommendations = products.filter(product=>product.score>=8)
+
+    const recommendations = products?.filter(product=>product.score>=8)
+    
     return (
         <section className='recommendations'>
             <h3 className='rec-title'>Recomendations</h3>
@@ -31,7 +21,7 @@ const Recommendations = () => {
                     ?
                     <h4 className='loading'>Loading...</h4>
                     :
-                    recommendations.map(product => {
+                    recommendations?.map(product => {
                         return(<Card key={product.id}{...product}/>)
                     })
                 }
