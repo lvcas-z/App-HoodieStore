@@ -1,18 +1,16 @@
-import React, { useContext, useEffect,useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-import {BsArrowLeft,BsPlusLg,BsFillBagFill} from 'react-icons/bs'
-import {AiOutlineMinus} from 'react-icons/ai'
+import { BsArrowLeft, BsPlusLg, BsFillBagFill } from 'react-icons/bs'
+import { AiOutlineMinus } from 'react-icons/ai'
 import './Details.css'
 import { ProductContext } from '../Context/ProductContext'
 
 const Details = () => {
-    const {id} = useParams()
-    const {products} = useContext(ProductContext)
+    const { id } = useParams()
+    const { products } = useContext(ProductContext)
     const [product, setProduct] = useState([])
     const [count, setCount] = useState(0)
-    const increment =()=> setCount(count+1)
-    const decrement =()=> setCount(count-1)
 
     const navigate = useNavigate()
     const getProductById = async (id) => {
@@ -24,7 +22,7 @@ const Details = () => {
         }
     }
 
-    const getProduct = async(id)=>{
+    const getProduct = async (id) => {
         try {
             const data = await getProductById(id)
             setProduct(data)
@@ -33,8 +31,11 @@ const Details = () => {
         }
     }
 
+    const handleIncrementQuantity = qty => count >= qty ? console.log("No se pueden agregar mas productos") : setCount(count + 1)
+    const handleDecrementQuantity = () => count <= 0 ? console.log("Disabled") : setCount(count - 1);
+
     useEffect(() => {
-    getProduct(id)
+        getProduct(id)
     }, [])
 
     return (
@@ -43,7 +44,7 @@ const Details = () => {
                 <img className='detail-img' src={product.img} alt={product.name} />
             </section>
             <section className='details-info-ctn'>
-                <button onClick={()=>navigate(-1)} className='detail-back-btn'><BsArrowLeft/></button>
+                <button onClick={() => navigate(-1)} className='detail-back-btn'><BsArrowLeft /></button>
                 <section className='detail-info-header'>
                     <h3 className='detail-title'>{product.name}</h3>
                 </section>
@@ -52,11 +53,20 @@ const Details = () => {
                     <p className='detail-price'>${product.price}</p>
                 </section>
                 <section className='detail-info-buttons'>
-                    <button onClick={increment} className='detail-info-btn'><BsPlusLg/></button>
-                    <button onClick={decrement} className='detail-info-btn'><AiOutlineMinus/></button>
+                    <button onClick={() => handleIncrementQuantity(product.quantity)}
+                        className={`detail-info-btn ${count >= product.quantity ? 'disabled' : ''}`}
+                    >
+                        <BsPlusLg />
+                    </button>
+                    <button
+                        onClick={handleDecrementQuantity}
+                        className={`detail-info-btn ${count <= 0 ? 'disabled' : ''}`}
+                    >
+                        <AiOutlineMinus />
+                    </button>
                     <p>Count: {count}</p>
                 </section>
-                <button className='detail-buy-btn'><BsFillBagFill/>Buy</button>
+                <button className='detail-buy-btn'><BsFillBagFill />Buy</button>
             </section>
         </section>
     )

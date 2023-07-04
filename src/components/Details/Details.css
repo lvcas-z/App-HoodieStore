@@ -47,6 +47,10 @@
     background: none;
     font-size: 2rem;
 }
+.detail-info-btn.disabled {
+    opacity: 0.1;
+    pointer-events: none;
+}
 .detail-buy-btn{
     cursor: pointer;
     height: 3rem;
