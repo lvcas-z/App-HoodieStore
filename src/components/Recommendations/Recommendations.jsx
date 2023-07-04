@@ -4,7 +4,7 @@ import './Recommendations.css'
 import { ProductContext } from '../Context/ProductContext'
 
 const Recommendations = () => {
-    const { products, setProducts, loading, setLoading, getProducts } = useContext(ProductContext)
+    const { products,loading,getProducts } = useContext(ProductContext)
 
     useEffect(() => {
         getProducts()

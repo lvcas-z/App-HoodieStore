@@ -5,42 +5,42 @@ import './Products.css'
 import { ProductContext } from '../Context/ProductContext'
 const Products = () => {
 
-    const [originalProducts, setOriginalProducts] = useState([]);
-    const { products, setProducts, loading, setLoading, getProducts } = useContext(ProductContext)
+    const { products, loading, getProducts } = useContext(ProductContext);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState('all');
 
     useEffect(() => {
-        getProducts()
-    }, [])
+        getProducts();
+    }, []);
 
-    const handleFilter = (e) => {
-        e.preventDefault();
-        const selectedValue = e.target.value;
-        let filteredProducts = [];
+    useEffect(() => {
+        // Filtrar los productos según la categoría seleccionada
+        filterProducts();
+    }, [selectedCategory, products]);
 
-        switch (selectedValue) {
-            case 'Basic':
-                filteredProducts = originalProducts.filter((pro) => pro.category === 'Basic');
-                break;
-            case 'Normal':
-                filteredProducts = originalProducts.filter((pro) => pro.category === 'Normal');
-                break;
-            case 'Special':
-                filteredProducts = originalProducts.filter((pro) => pro.category === 'Special');
-                break;
-            default:
-                filteredProducts = originalProducts;
-                break;
+    const filterProducts = () => {
+        if (selectedCategory === 'all') {
+            // Mostrar todos los productos si se selecciona "all"
+            setFilteredProducts(products);
+        } else {
+            // Filtrar los productos según la categoría seleccionada
+            const filtered = products.filter((product) => product.category === selectedCategory);
+            setFilteredProducts(filtered);
         }
-
-        setProducts(filteredProducts);
     };
+
+    const handleCategoryChange = (e) => {
+        setSelectedCategory(e.target.value);
+    };
+
+
 
     return (
         <section className='products'>
             <h3 className='pro-title'>Products</h3>
             <section className='select-ctn'>
                 <h5>Filter :</h5>
-                <select onChange={handleFilter} name="productType" id="productType">
+                <select onChange={handleCategoryChange} name="productType" id="productType" value={selectedCategory}>
                     <option value="all">All</option>
                     <option value="Basic" >Basic</option>
                     <option value="Normal">Normal</option>
@@ -53,7 +53,7 @@ const Products = () => {
                         ?
                         <h4 className='loading'>Loading...</h4>
                         :
-                        products?.map(product => {
+                        filteredProducts?.map(product => {
                             return (<Card key={product.id}{...product} />)
                         })
                 }
