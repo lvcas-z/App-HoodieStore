@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Card.css'
 import { Link } from 'react-router-dom';
 import {BsFillBagFill,BsFillEyeFill} from 'react-icons/bs'
+import { CartContext } from '../Context/CartContext';
 const Card = ({id,name,img,price,category}) => {
+    const {addToCart} = useContext(CartContext)
+    const productCard = { id, name, img, price, category}
+
+    const handleAddToCart = () => {
+        addToCart(productCard, 1);
+    }
+
     return (
     <div className='card-item'>
         <div className='card-img-ctn'>
@@ -18,7 +26,7 @@ const Card = ({id,name,img,price,category}) => {
                 <Link to={"/product/" + id}>
                     <button className='card-btn-details'><BsFillEyeFill/>View</button>
                 </Link>
-                <button className='card-btn-buy'><BsFillBagFill/>Buy</button>
+                <button onClick={handleAddToCart} className='card-btn-buy'><BsFillBagFill/>Buy</button>
             </div>
         </div>
         

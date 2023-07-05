@@ -58,6 +58,9 @@
     border: 0;
     border-radius: 5px;
 }
+.max-products-message {
+    color: red;
+}
 @media (max-width:1024px){
     .details-ctn{
         flex-direction: column;
