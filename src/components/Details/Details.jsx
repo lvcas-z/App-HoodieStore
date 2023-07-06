@@ -4,12 +4,13 @@ import { BsArrowLeft, BsPlusLg, BsFillBagFill } from 'react-icons/bs';
 import { AiOutlineMinus } from 'react-icons/ai';
 import './Details.css';
 import { ProductContext } from '../Context/ProductContext';
-import { CartContext } from '../Context/CartContext'; // Importa el CartContext
+import { CartContext } from '../Context/CartContext'; 
 
 const Details = () => {
     const { id } = useParams();
     const { products } = useContext(ProductContext);
-    const { addToCart } = useContext(CartContext); // Obtiene la función addToCart desde el contexto
+    const { addToCart } = useContext(CartContext);
+
     const [product, setProduct] = useState([]);
     const [count, setCount] = useState(0);
     const [message, setMessage] = useState(null);
@@ -70,23 +71,23 @@ const Details = () => {
                 </button>
                 <section className="detail-info-header">
                     <h3 className="detail-title">{product.name}</h3>
+                </section>
+                <section className='detail-info-category'>
+                    <p className="detail-category">{product.category}</p>
                     <p className="detail-price">${product.price}</p>
                 </section>
-                <p className="detail-category">{product.category}</p>
-                <p className="detail-description">{product.description}</p>
                 <section className="detail-quantity-ctn">
-                    <button onClick={handleDecrementQuantity}>
-                        <AiOutlineMinus />
-                    </button>
-                    <p className="detail-quantity">{count}</p>
-                    <button onClick={handleIncrementQuantity}>
+                    <button className='detail-info-btn' onClick={handleIncrementQuantity}>
                         <BsPlusLg />
                     </button>
+                    <button className={`detail-info-btn ${count <= 0 ? 'disabled' : ''}`} onClick={handleDecrementQuantity}>
+                        <AiOutlineMinus />
+                    </button>
+                    <p className="detail-quantity">Quantity: {count}</p>
                 </section>
                 {message && <p className="detail-message">{message}</p>}
-                <button onClick={handleAddToCart} className="detail-add-btn">
-                    <BsFillBagFill />
-                    Add to Cart
+                <button onClick={handleAddToCart} className="detail-buy-btn">
+                    <BsFillBagFill /> Buy
                 </button>
             </section>
         </section>

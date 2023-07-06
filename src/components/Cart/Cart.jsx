@@ -10,7 +10,9 @@ const Cart = () => {
     const handleRemoveFromCart = (productId) => {
         removeFromCart(productId);
     };
-
+    const handleRemoveAll = () => {
+        cartItems.forEach((item) => removeFromCart(item.id));
+    };
     return (
         <div className='cart'>
             <h3 className='cart-title'>Resumen de compra</h3>
@@ -31,12 +33,10 @@ const Cart = () => {
                             <td>
                                 {item.quantity}
                             </td>
-                            <td>${item.price}</td>
-                            <td>
-                                <button onClick={() => handleRemoveFromCart(item.id)}>
+                            <td className='price-ctn'>${item.price}<button className='remove-btn' onClick={() => handleRemoveFromCart(item.id)}>
                                     Remove
-                                </button>
-                            </td>
+                                </button></td>
+                                
                         </tr>
                     ))}
                 </tbody>
@@ -44,7 +44,7 @@ const Cart = () => {
             <p className='cart-total'>Total: ${getTotalPrice()} </p>
             <section className='cart-buttons'>
                 <button onClick={() => navigate("/shop")} className='cart-add-btn'>Add Products</button>
-                <button className='cart-rm-btn'>Remove All Products</button>
+                <button onClick={handleRemoveAll} className='cart-rm-btn'>Remove All Products</button>
                 <button className='cart-buy-btn'>Buy Products</button>
             </section>
 
