@@ -6,7 +6,6 @@ export const ProductContext = createContext()
 export const ProductProvider = ({ children }) => {
 
     const [products, setProducts] = useState()
-    const [loading, setLoading] = useState(false);
 
     const getProducts = async () => {
         try {
@@ -26,8 +25,6 @@ export const ProductProvider = ({ children }) => {
             value={{
                 products,
                 setProducts,
-                loading,
-                setLoading,
                 getProducts
             }}>
             {children}

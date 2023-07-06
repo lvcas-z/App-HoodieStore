@@ -54,6 +54,7 @@ const Details = () => {
     const handleAddToCart = () => {
         addToCart(product, count)
         setCount(0)
+        setMessage(null)
     };
 
     useEffect(() => {

@@ -1,0 +1,27 @@
+.success-ctn {
+    background-color: whitesmoke;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+.success-title {
+    font-size: 3rem;
+}
+
+.success-price {
+    font-size: 1.5rem;
+}
+
+.success-btn {
+    cursor: pointer;
+    height: 3rem;
+    background: #bdbde1;
+    border: 0;
+    border-radius: 5px;
+    padding: 0 2rem;
+    margin-top: 2rem;
+}

@@ -27,15 +27,13 @@
     text-align: left;
     font-weight: bold;
 }
-.price-ctn{
-    display: flex;
-    gap: 1rem;
-}
 .remove-btn{
     cursor: pointer;
     border: 0;
     border-radius: 5px;
-    background-color: rgb(227, 135, 102);
+    background-color: #151515;
+    color: whitesmoke;
+    padding: 0.25rem;
 }
 .cart-total {
     text-align: right;
@@ -61,4 +59,15 @@
 }
 .cart-buy-btn{
     background-color:#c1c1fd;;
+}
+@media (max-width:768px){
+    .cart{
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .cart-buttons{
+        flex-direction: column;
+    }
 }

@@ -39,6 +39,9 @@ const CartContextProvider = ({ children }) => {
             (total, item) => total + item.price * item.quantity, 0
         );
     };
+    const handleRemoveAll = () => {
+        cartItems.forEach((item) => removeFromCart(item.id));
+    };
 
     // Guardar carrito en el almacenamiento local al actualizar
     useEffect(() => {
@@ -60,6 +63,7 @@ const CartContextProvider = ({ children }) => {
                 addToCart,
                 removeFromCart,
                 getTotalPrice,
+                handleRemoveAll
             }}
         >
             {children}
