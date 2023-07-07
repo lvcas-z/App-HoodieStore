@@ -11,7 +11,7 @@
   </p>
 </div>
 
-![](hoodiestore.png)
+![](store.png)
 
 <!-- Tecnologias -->
 ### Proyecto realizado con :
