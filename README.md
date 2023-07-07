@@ -7,7 +7,7 @@
 
 <h3 align="center">Hoodie Store</h3>
   <p align="center">
-    <a href="https://lvcas-z.github.io/App-HoodieStore/"><strong>Explora el proyecto</strong></a>
+    <a href="https://app-hoodie-store.vercel.app"><strong>Explora el proyecto</strong></a>
   </p>
 </div>
 
