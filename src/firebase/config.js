@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCw6H9jxS4zBLECGPKJrmER7ab6HAyuya0",
-    authDomain: "hoodie-store-371e4.firebaseapp.com",
-    projectId: "hoodie-store-371e4",
-    storageBucket: "hoodie-store-371e4.appspot.com",
-    messagingSenderId: "167660718370",
-    appId: "1:167660718370:web:9f56530798e4accff7fd7b"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
